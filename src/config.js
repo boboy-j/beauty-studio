@@ -13,8 +13,9 @@ export const APP_URL = import.meta.env.PROD ? PRODUCTION_URL : DEV_URL
 
 // 分享相关
 export const SHARE = {
-  getInviteUrl(inviteCode) {
-    return `${APP_URL}/invite?code=${inviteCode}`
+  getInviteUrl(/*inviteCode*/) {
+    // 暂不拼接路径，Railway SPA 部署下只有主页能访问
+    return APP_URL
   },
   getAppUrl() {
     return APP_URL
