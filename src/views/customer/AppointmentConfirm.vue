@@ -12,7 +12,7 @@
       <div class="bg-white rounded-2xl p-5">
         <div class="flex items-center gap-3 mb-4 pb-4 border-b border-gray-50">
           <div class="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center">
-            <span class="text-2xl">📅</span>
+            <Calendar :size="24" class="text-gray-600" />
           </div>
           <div>
             <h3 class="text-sm font-medium text-gray-800">预约确认</h3>
@@ -66,6 +66,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { Calendar } from 'lucide-vue-next'
 import { useRoute, useRouter } from 'vue-router'
 import { orders, appointments, currentUser } from '@/mock/data.js'
 

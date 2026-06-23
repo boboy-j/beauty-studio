@@ -10,7 +10,7 @@
     <div class="px-3 mt-3 space-y-3">
       <!-- 推送编辑 -->
       <div class="bg-white rounded-2xl p-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">📨 编辑推送内容</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3"><Mail :size="18" class="inline-block mr-1" /> 编辑推送内容</h3>
         <div class="space-y-3">
           <div>
             <label class="form-label">推送标题</label>
@@ -39,10 +39,10 @@
 
       <!-- 历史推送 -->
       <div class="bg-white rounded-2xl p-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">📋 历史推送记录</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3"><ClipboardList :size="18" class="inline-block mr-1" /> 历史推送记录</h3>
         <div v-for="(item, i) in history" :key="i" class="flex items-start gap-3 py-3 border-b border-gray-50 last:border-0">
           <div class="w-8 h-8 rounded-full bg-primary-50 flex items-center justify-center flex-shrink-0">
-            <span class="text-sm">📨</span>
+            <Mail :size="16" class="text-primary-500" />
           </div>
           <div class="flex-1 min-w-0">
             <div class="text-sm text-gray-700">{{ item.title }}</div>
@@ -53,7 +53,7 @@
 
       <!-- 订阅消息模板 -->
       <div class="bg-white rounded-2xl p-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">⚙️ 订阅消息模板</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3"><Settings :size="18" class="inline-block mr-1" /> 订阅消息模板</h3>
         <div class="space-y-2">
           <div class="flex items-center justify-between py-2 border-b border-gray-50">
             <span class="text-sm text-gray-600">预约确认通知</span>
@@ -76,6 +76,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { Mail, ClipboardList, Settings } from 'lucide-vue-next'
 
 const router = useRouter()
 

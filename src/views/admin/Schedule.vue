@@ -30,7 +30,7 @@
 
       <!-- 时段预览 -->
       <div class="bg-white rounded-2xl p-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">📋 时段预览</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3"><ClipboardList :size="18" class="inline-block mr-1" />时段预览</h3>
         <div class="grid grid-cols-3 gap-2">
           <div v-for="slot in timeSlots" :key="slot"
             class="py-2 rounded-xl text-center text-xs border"
@@ -42,7 +42,7 @@
 
       <!-- 最近预约占用 -->
       <div class="bg-white rounded-2xl p-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">📅 明日时段占用</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3"><Calendar :size="18" class="inline-block mr-1" />明日时段占用</h3>
         <div class="space-y-2">
           <div v-for="(count, slot) in tomorrowSchedule" :key="slot" class="flex items-center gap-3">
             <span class="text-xs text-gray-500 w-24">{{ slot }}</span>
@@ -60,6 +60,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { ClipboardList, Calendar } from 'lucide-vue-next'
 import { timeSlots, scheduleData } from '@/mock/data.js'
 
 const router = useRouter()

@@ -44,7 +44,7 @@
 
       <!-- 套餐内容 -->
       <div class="bg-white mt-3 px-4 py-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">📦 套餐内容</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3 flex items-center"><Package :size="18" class="text-gray-600 mr-2" />套餐内容</h3>
         <div v-for="item in product.items" :key="item.name" class="flex items-center justify-between py-2 border-b border-gray-50 last:border-0">
           <span class="text-sm text-gray-600">{{ item.name }}</span>
           <span class="text-sm text-primary-600 font-medium">{{ item.count }}次</span>
@@ -53,7 +53,7 @@
 
       <!-- 适用肌肤 -->
       <div v-if="product.skinTypes && product.skinTypes.length" class="bg-white mt-3 px-4 py-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">🧴 适用肌肤</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3 flex items-center"><Droplets :size="18" class="text-gray-600 mr-2" />适用肌肤</h3>
         <div class="flex flex-wrap gap-2">
           <span v-for="skin in product.skinTypes" :key="skin" class="px-3 py-1 bg-rose-50 text-rose-600 text-xs rounded-full">{{ skin }}</span>
         </div>
@@ -61,19 +61,19 @@
 
       <!-- 项目介绍 -->
       <div class="bg-white mt-3 px-4 py-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">📝 项目介绍</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3 flex items-center"><FileText :size="18" class="text-gray-600 mr-2" />项目介绍</h3>
         <p class="text-sm text-gray-500 leading-relaxed">{{ product.desc }}</p>
       </div>
 
       <!-- 注意事项 -->
       <div class="bg-white mt-3 px-4 py-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">⚠️ 注意事项</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3 flex items-center"><TriangleAlert :size="18" class="text-amber-500 mr-2" />注意事项</h3>
         <p class="text-sm text-gray-500">{{ product.notes }}</p>
       </div>
 
       <!-- 效果图集 -->
       <div class="bg-white mt-3 px-4 py-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">🖼️ 效果图集</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3 flex items-center"><Image :size="18" class="text-gray-600 mr-2" />效果图集</h3>
         <div class="flex gap-2 overflow-x-auto" style="scrollbar-width: none;">
           <img v-for="(img, i) in product.images" :key="i" :src="img"
             class="w-28 h-28 object-cover rounded-xl flex-shrink-0" />
@@ -100,6 +100,7 @@
 
 <script setup>
 import { computed } from 'vue'
+import { Package, Droplets, FileText, TriangleAlert, Image } from 'lucide-vue-next'
 import { useRoute, useRouter } from 'vue-router'
 import { useProductsStore } from '@/store/products.js'
 

@@ -3,7 +3,7 @@
     <div class="flex flex-col items-center pt-16 px-6">
       <!-- 成功图标 -->
       <div class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-4">
-        <span class="text-4xl">✅</span>
+        <CheckCircle :size="40" class="text-green-500" />
       </div>
       <h2 class="text-xl font-bold text-gray-800 mb-2">支付成功</h2>
       <p class="text-sm text-gray-400 mb-8">你的订单已支付成功，快去预约到店时间吧</p>
@@ -39,7 +39,7 @@
       <!-- 分享引导 -->
       <div class="mt-8 bg-amber-50 rounded-2xl px-5 py-4 w-full">
         <div class="flex items-center gap-2 mb-1">
-          <span class="text-lg">🎁</span>
+          <Gift :size="18" class="text-amber-600 inline-block mr-1" />
           <span class="text-sm font-medium text-amber-700">分享给好友，双方都优惠</span>
         </div>
         <p class="text-xs text-amber-500 mt-1">邀请好友注册，双方各得50元优惠券</p>
@@ -50,6 +50,7 @@
 </template>
 
 <script setup>
+import { CheckCircle, Gift } from 'lucide-vue-next'
 import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { orders } from '@/mock/data.js'

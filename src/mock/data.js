@@ -3,11 +3,11 @@
 // 分类
 export const categories = [
   { id: 'all', name: '全部' },
-  { id: '祛痘', name: '祛痘', icon: '🧊' },
-  { id: '美白', name: '美白', icon: '✨' },
-  { id: '除螨', name: '除螨', icon: '🔬' },
-  { id: '减肥', name: '减肥', icon: '🏋️' },
-  { id: '套餐', name: '套餐优惠', icon: '🎁' },
+  { id: '祛痘', name: '祛痘', icon: 'Sparkles' },
+  { id: '美白', name: '美白', icon: 'Sun' },
+  { id: '除螨', name: '除螨', icon: 'Search' },
+  { id: '减肥', name: '减肥', icon: 'Heart' },
+  { id: '套餐', name: '套餐优惠', icon: 'Gift' },
 ]
 
 // 项目列表

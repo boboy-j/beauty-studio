@@ -11,7 +11,7 @@
     <!-- 搜索 -->
     <div class="px-3 pt-3">
       <div class="relative">
-        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-300">🔍</span>
+        <Search :size="16" class="text-gray-300 absolute left-3 top-1/2 -translate-y-1/2" />
         <input v-model="searchQuery" type="text" class="form-input pl-9" placeholder="搜索客户姓名/手机号..." />
       </div>
     </div>
@@ -38,7 +38,7 @@
       </div>
 
       <div v-if="filteredCustomers.length === 0" class="empty-state">
-        <div class="empty-icon">👥</div>
+        <Users :size="48" class="text-gray-300" />
         <div class="empty-text">暂无客户数据</div>
       </div>
     </div>
@@ -61,6 +61,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { Search, Users } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
 import { customers } from '@/mock/data.js'
 

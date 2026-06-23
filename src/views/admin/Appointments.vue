@@ -30,7 +30,7 @@
       </div>
 
       <div v-if="todayAppointments.filter(a => a.status === 'pending').length === 0" class="text-center py-10 text-gray-300">
-        <div class="text-4xl mb-2">✅</div>
+        <CheckCircle :size="32" class="text-green-400 mb-2 mx-auto" />
         <div class="text-sm">今日预约已全部核销</div>
       </div>
     </div>
@@ -38,6 +38,7 @@
 </template>
 
 <script setup>
+import { CheckCircle } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
 import { todayAppointments } from '@/mock/data.js'
 

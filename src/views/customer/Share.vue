@@ -38,12 +38,12 @@
       <h3 class="text-sm font-bold text-gray-700 mb-3 px-1">分享给好友</h3>
       <div class="grid grid-cols-2 gap-3">
         <div class="bg-white rounded-2xl p-4 text-center cursor-pointer" @click="showQRModal = true">
-          <div class="text-3xl mb-2">📱</div>
+          <Smartphone :size="36" class="mx-auto mb-2 text-gray-600" />
           <div class="text-sm text-gray-700 font-medium">分享二维码</div>
           <div class="text-xs text-gray-400 mt-1">保存图片发给好友</div>
         </div>
         <div class="bg-white rounded-2xl p-4 text-center cursor-pointer" @click="shareLink">
-          <div class="text-3xl mb-2">🔗</div>
+          <Link :size="36" class="mx-auto mb-2 text-gray-600" />
           <div class="text-sm text-gray-700 font-medium">分享链接</div>
           <div class="text-xs text-gray-400 mt-1">复制链接发给好友</div>
         </div>
@@ -57,7 +57,12 @@
         <div ref="posterRef" class="relative rounded-xl overflow-hidden" style="aspect-ratio: 3/4; background: linear-gradient(135deg, #fdf8f3, #f0e6d8);">
           <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
             <div class="w-16 h-16 rounded-full bg-primary-200 flex items-center justify-center mb-3">
-              <span class="text-2xl">🌸</span>
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="#d4a574" class="opacity-80">
+                <path d="M12 3c0 0-3 5-3 8c0 3 1.5 5 3 5s3-2 3-5c0-3-3-8-3-8z" opacity="0.85"/>
+                <path d="M6 9c0 0 4 3 6 3s6-3 6-3c0 0-2 5-2 7c0 2-1.5 4-4 4s-4-2-4-4c0-2-2-7-2-7z" opacity="0.85"/>
+                <path d="M3 17c0 0 5-1 7 0c2 1 3 3 2 4c-1 1-3 0-4-1c-1-1-5-3-5-3z" opacity="0.85"/>
+                <circle cx="12" cy="12" r="1.5" fill="#fff" opacity="0.6"/>
+              </svg>
             </div>
             <h3 class="text-lg font-bold text-primary-700 mb-1">颜美工作室</h3>
             <p class="text-xs text-primary-400 mb-4">皮肤管理 · 专业呵护你的美</p>
@@ -101,6 +106,7 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { currentUser, referralRanking } from '@/mock/data.js'
+import { Smartphone, Link } from 'lucide-vue-next'
 import { SHARE, STUDIO } from '@/config.js'
 import QRCode from 'qrcode'
 import html2canvas from 'html2canvas'

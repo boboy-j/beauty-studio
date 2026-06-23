@@ -4,20 +4,31 @@
     <div class="sticky top-0 z-50 bg-white border-b border-gray-100 px-4 py-3">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2">
-          <span class="text-xl">🌸</span>
-          <span class="text-lg font-bold text-primary-600">颜美工作室</span>
-        </div>
-        <div class="flex gap-3">
-          <router-link to="/share" class="text-gray-400 text-lg">🎁</router-link>
-          <router-link to="/profile" class="text-gray-400 text-lg">👤</router-link>
-        </div>
+        <span class="text-xl">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="#d4a574" class="inline-block">
+            <path d="M12 3c0 0-3 5-3 8c0 3 1.5 5 3 5s3-2 3-5c0-3-3-8-3-8z" opacity="0.85"/>
+            <path d="M6 9c0 0 4 3 6 3s6-3 6-3c0 0-2 5-2 7c0 2-1.5 4-4 4s-4-2-4-4c0-2-2-7-2-7z" opacity="0.85"/>
+            <path d="M3 17c0 0 5-1 7 0c2 1 3 3 2 4c-1 1-3 0-4-1c-1-1-5-3-5-3z" opacity="0.85"/>
+            <circle cx="12" cy="11" r="1.5" fill="#fff" opacity="0.6"/>
+          </svg>
+        </span>
+        <span class="text-lg font-bold text-primary-600">颜美工作室</span>
+      </div>
+      <div class="flex gap-3">
+        <router-link to="/share" class="text-gray-400">
+          <Gift :size="20" />
+        </router-link>
+        <router-link to="/profile" class="text-gray-400">
+          <User :size="20" />
+        </router-link>
+      </div>
       </div>
     </div>
 
     <!-- 搜索框 -->
     <div class="px-4 pt-3 pb-2">
       <div class="bg-white rounded-full px-4 py-2.5 flex items-center gap-2 border border-gray-100 shadow-sm">
-        <span class="text-gray-300">🔍</span>
+        <Search :size="16" class="text-gray-300" />
         <span class="text-gray-300 text-sm">搜索项目...</span>
       </div>
     </div>
@@ -38,7 +49,7 @@
 
     <!-- 公告栏 -->
     <div class="mx-4 mt-3 bg-amber-50 rounded-xl px-4 py-2.5 flex items-center gap-2">
-      <span class="text-amber-500 text-sm">📢</span>
+      <Megaphone :size="16" class="text-amber-500 flex-shrink-0" />
       <span class="text-amber-700 text-sm flex-1 truncate">{{ announcements[0].content }}</span>
     </div>
 
@@ -51,7 +62,9 @@
             ? 'bg-primary-500 text-white shadow-md'
             : 'bg-white text-gray-500 border border-gray-100'"
           @click="selectedCategory = cat.id">
-          <span v-if="cat.icon" class="mr-1">{{ cat.icon }}</span>
+          <span v-if="cat.icon" class="mr-1">
+            <component :is="iconComponents[cat.icon]" :size="14" class="inline-block" />
+          </span>
           {{ cat.name }}
         </div>
       </div>
@@ -89,10 +102,19 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { banners, categories, announcements } from '@/mock/data.js'
 import { useProductsStore } from '@/store/products.js'
+import { Gift, User, Search, Megaphone, Sparkles, Sun, Heart } from 'lucide-vue-next'
 
 const router = useRouter()
 const store = useProductsStore()
 const selectedCategory = ref('all')
+
+const iconComponents = {
+  Sparkles,
+  Sun,
+  Search,
+  Heart,
+  Gift,
+}
 
 const filteredProducts = computed(() => {
   const active = store.activeProducts

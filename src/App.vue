@@ -10,23 +10,23 @@
     <!-- C端底部Tab栏 -->
     <div v-if="showCustomerTab" class="tab-bar">
       <router-link to="/home" class="tab-item" :class="{ active: currentRoute === 'home' }">
-        <span class="tab-icon">🏠</span>
+        <Home :size="22" class="tab-icon" />
         <span>首页</span>
       </router-link>
       <router-link to="/orders" class="tab-item" :class="{ active: currentRoute === 'orders' }">
-        <span class="tab-icon">📋</span>
+        <ClipboardList :size="22" class="tab-icon" />
         <span>订单</span>
       </router-link>
       <router-link to="/appointments" class="tab-item" :class="{ active: currentRoute === 'appointments' }">
-        <span class="tab-icon">📅</span>
+        <Calendar :size="22" class="tab-icon" />
         <span>预约</span>
       </router-link>
       <router-link to="/share" class="tab-item" :class="{ active: currentRoute === 'share' }">
-        <span class="tab-icon">🎁</span>
+        <Gift :size="22" class="tab-icon" />
         <span>分享</span>
       </router-link>
       <router-link to="/profile" class="tab-item" :class="{ active: currentRoute === 'profile' }">
-        <span class="tab-icon">👤</span>
+        <User :size="22" class="tab-icon" />
         <span>我的</span>
       </router-link>
     </div>
@@ -34,23 +34,23 @@
     <!-- B端管理员底部Tab栏 -->
     <div v-if="showAdminTab" class="admin-tab-bar">
       <router-link to="/admin" class="admin-tab-item" :class="{ active: currentRoute === 'admin' }">
-        <span class="admin-tab-icon">📊</span>
+        <BarChart3 :size="24" class="admin-tab-icon" />
         <span class="admin-tab-label">概况</span>
       </router-link>
       <router-link to="/admin/appointments" class="admin-tab-item" :class="{ active: currentRoute === 'admin-appointments' }">
-        <span class="admin-tab-icon">📋</span>
+        <ClipboardList :size="24" class="admin-tab-icon" />
         <span class="admin-tab-label">预约</span>
       </router-link>
       <router-link to="/admin/products" class="admin-tab-item" :class="{ active: currentRoute === 'admin-products' }">
-        <span class="admin-tab-icon">📦</span>
+        <Package :size="24" class="admin-tab-icon" />
         <span class="admin-tab-label">项目</span>
       </router-link>
       <router-link to="/admin/customers" class="admin-tab-item" :class="{ active: currentRoute === 'admin-customers' }">
-        <span class="admin-tab-icon">👥</span>
+        <Users :size="24" class="admin-tab-icon" />
         <span class="admin-tab-label">客户</span>
       </router-link>
       <router-link to="/admin/stats" class="admin-tab-item" :class="{ active: currentRoute === 'admin-stats' }">
-        <span class="admin-tab-icon">📈</span>
+        <TrendingUp :size="24" class="admin-tab-icon" />
         <span class="admin-tab-label">统计</span>
       </router-link>
     </div>
@@ -60,6 +60,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { Home, ClipboardList, Calendar, Gift, User, BarChart3, Package, Users, TrendingUp } from 'lucide-vue-next'
 
 const route = useRoute()
 

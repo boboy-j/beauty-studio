@@ -20,8 +20,8 @@
           </span>
         </div>
         <div class="flex items-center gap-4 mt-3 text-sm text-gray-500">
-          <span>📅 {{ apt.date }}</span>
-          <span>⏰ {{ apt.timeSlot }}</span>
+          <span><Calendar :size="14" class="inline-block" /> {{ apt.date }}</span>
+          <span><Clock :size="14" class="inline-block" /> {{ apt.timeSlot }}</span>
         </div>
         <div v-if="apt.status === 'pending'" class="border-t border-gray-50 mt-3 pt-3 flex justify-end">
           <button class="text-sm text-red-400" @click="cancelAppointment(apt.id)">取消预约</button>
@@ -29,7 +29,7 @@
       </div>
 
       <div v-if="appointments.length === 0" class="empty-state">
-        <div class="empty-icon">📅</div>
+        <div class="empty-icon"><Calendar :size="48" class="text-gray-300" /></div>
         <div class="empty-text">暂无预约记录</div>
       </div>
     </div>
@@ -37,6 +37,7 @@
 </template>
 
 <script setup>
+import { Calendar, Clock } from 'lucide-vue-next'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { appointments } from '@/mock/data.js'

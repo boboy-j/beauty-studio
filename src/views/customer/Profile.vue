@@ -5,7 +5,7 @@
       <div class="flex items-center gap-4">
         <div class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center text-2xl overflow-hidden">
           <img v-if="currentUser.avatar" :src="currentUser.avatar" class="w-full h-full object-cover" />
-          <span v-else>👤</span>
+          <User v-else :size="32" class="text-white/80" />
         </div>
         <div>
           <h2 class="text-lg font-bold">{{ currentUser.nickname }}</h2>
@@ -18,19 +18,19 @@
     <div class="bg-white mx-3 -mt-4 rounded-2xl p-4 z-10 relative shadow-sm">
       <div class="grid grid-cols-4 gap-3">
         <div class="text-center cursor-pointer" @click="router.push('/orders')">
-          <div class="text-2xl mb-1">📋</div>
+          <ClipboardList :size="28" class="mx-auto mb-1 text-gray-600" />
           <div class="text-xs text-gray-500">我的订单</div>
         </div>
         <div class="text-center cursor-pointer" @click="router.push('/appointments')">
-          <div class="text-2xl mb-1">📅</div>
+          <Calendar :size="28" class="mx-auto mb-1 text-gray-600" />
           <div class="text-xs text-gray-500">我的预约</div>
         </div>
         <div class="text-center cursor-pointer" @click="router.push('/share')">
-          <div class="text-2xl mb-1">🎁</div>
+          <Gift :size="28" class="mx-auto mb-1 text-gray-600" />
           <div class="text-xs text-gray-500">邀请好友</div>
         </div>
         <div class="text-center cursor-pointer">
-          <div class="text-2xl mb-1">💬</div>
+          <MessageCircle :size="28" class="mx-auto mb-1 text-gray-600" />
           <div class="text-xs text-gray-500">联系客服</div>
         </div>
       </div>
@@ -65,17 +65,17 @@
     <!-- 工具栏 -->
     <div class="bg-white mx-3 mt-3 rounded-2xl divide-y divide-gray-50">
       <div class="flex items-center gap-3 p-4 cursor-pointer">
-        <span>📞</span>
+        <Phone :size="20" class="text-gray-500" />
         <span class="text-sm text-gray-600 flex-1">联系商家</span>
         <span class="text-xs text-gray-300">→</span>
       </div>
       <div class="flex items-center gap-3 p-4 cursor-pointer">
-        <span>📖</span>
+        <BookOpen :size="20" class="text-gray-500" />
         <span class="text-sm text-gray-600 flex-1">使用帮助</span>
         <span class="text-xs text-gray-300">→</span>
       </div>
       <div class="flex items-center gap-3 p-4 cursor-pointer" @click="switchToAdmin">
-        <span>🔐</span>
+        <Shield :size="20" class="text-gray-500" />
         <span class="text-sm text-gray-600 flex-1">店主管理入口</span>
         <span class="text-xs text-gray-300">→</span>
       </div>
@@ -87,6 +87,7 @@
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { currentUser, orders, appointments } from '@/mock/data.js'
+import { User, ClipboardList, Calendar, Gift, MessageCircle, Phone, BookOpen, Shield } from 'lucide-vue-next'
 
 const router = useRouter()
 

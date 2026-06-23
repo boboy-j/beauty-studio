@@ -40,7 +40,7 @@
       </div>
 
       <div v-if="store.items.length === 0" class="text-center py-16 text-gray-400">
-        <div class="text-4xl mb-3">📦</div>
+        <Package :size="48" class="text-gray-300 mb-3 mx-auto" />
         <div class="text-sm">暂无项目</div>
         <router-link to="/admin/product/edit/0" class="text-primary-500 text-sm mt-2 inline-block">+ 新增项目</router-link>
       </div>
@@ -51,6 +51,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { Package } from 'lucide-vue-next'
 import { useProductsStore } from '@/store/products.js'
 
 const router = useRouter()

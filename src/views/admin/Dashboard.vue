@@ -35,25 +35,25 @@
       <div class="grid grid-cols-4 gap-3">
         <div class="text-center cursor-pointer" @click="router.push('/admin/appointments')">
           <div class="w-10 h-10 bg-primary-50 rounded-xl flex items-center justify-center mx-auto mb-1">
-            <span class="text-lg">📋</span>
+            <ClipboardList :size="20" />
           </div>
           <div class="text-xs text-gray-500">核销</div>
         </div>
         <div class="text-center cursor-pointer" @click="router.push('/admin/products')">
           <div class="w-10 h-10 bg-rose-50 rounded-xl flex items-center justify-center mx-auto mb-1">
-            <span class="text-lg">📦</span>
+            <Package :size="20" />
           </div>
           <div class="text-xs text-gray-500">管理项目</div>
         </div>
         <div class="text-center cursor-pointer" @click="router.push('/admin/schedule')">
           <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center mx-auto mb-1">
-            <span class="text-lg">📅</span>
+            <Calendar :size="20" />
           </div>
           <div class="text-xs text-gray-500">预约配置</div>
         </div>
         <div class="text-center cursor-pointer" @click="router.push('/admin/customers')">
           <div class="w-10 h-10 bg-green-50 rounded-xl flex items-center justify-center mx-auto mb-1">
-            <span class="text-lg">👥</span>
+            <Users :size="20" />
           </div>
           <div class="text-xs text-gray-500">客户</div>
         </div>
@@ -104,6 +104,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { ClipboardList, Package, Calendar, Users, TrendingUp } from 'lucide-vue-next'
 import { stats, todayAppointments, adminUser } from '@/mock/data.js'
 
 const router = useRouter()

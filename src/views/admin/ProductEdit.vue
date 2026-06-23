@@ -10,7 +10,7 @@
     <div class="px-3 mt-3 space-y-3">
       <!-- 图片上传 & 裁剪 -->
       <div class="bg-white rounded-2xl p-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">📷 项目图片</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3"><Camera :size="18" class="inline-block mr-1" />项目图片</h3>
 
         <!-- 已选图片列表 -->
         <div class="flex gap-2 flex-wrap mb-3">
@@ -153,6 +153,7 @@
 <script setup>
 import { ref, computed, nextTick } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { Camera } from 'lucide-vue-next'
 import { categories } from '@/mock/data.js'
 import { useProductsStore } from '@/store/products.js'
 import Cropper from 'cropperjs'

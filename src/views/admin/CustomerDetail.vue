@@ -34,7 +34,7 @@
 
       <!-- 订单记录 -->
       <div class="bg-white rounded-2xl p-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">📋 订单记录</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3"><ClipboardList :size="18" class="inline-block mr-1" />订单记录</h3>
         <div v-for="order in customerOrders" :key="order.id" class="flex items-center gap-3 py-2.5 border-b border-gray-50 last:border-0">
           <img :src="order.productImage" class="w-12 h-12 rounded-lg object-cover" />
           <div class="flex-1 min-w-0">
@@ -50,7 +50,7 @@
 
       <!-- 最近预约 -->
       <div class="bg-white rounded-2xl p-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">📅 最近预约</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3"><Calendar :size="18" class="inline-block mr-1" />最近预约</h3>
         <div v-for="apt in customerAppts" :key="apt.id" class="flex items-center justify-between py-2.5 border-b border-gray-50 last:border-0">
           <div>
             <div class="text-sm text-gray-700">{{ apt.itemName }}</div>
@@ -71,6 +71,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { ClipboardList, Calendar } from 'lucide-vue-next'
 import { customers, orders, appointments } from '@/mock/data.js'
 
 const route = useRoute()

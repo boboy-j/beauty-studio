@@ -45,7 +45,7 @@
 
       <!-- 核销记录 -->
       <div class="bg-white mx-3 mt-3 rounded-2xl p-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">📋 核销记录</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3"><ClipboardList :size="18" class="text-gray-600 mr-2 inline-block" /> 核销记录</h3>
         <div v-if="order.verificationRecords.length" v-for="record in order.verificationRecords" :key="record.time"
           class="flex items-center justify-between py-2 border-b border-gray-50 last:border-0">
           <div class="flex items-center gap-2">
@@ -73,7 +73,7 @@
     <div v-if="showContact" class="fixed inset-0 bg-black/40 z-50 flex items-end justify-center pb-20" @click="showContact = false">
       <div class="bg-white rounded-2xl w-full max-w-[400px] mx-4 p-6" @click.stop>
         <div class="text-center">
-          <div class="text-3xl mb-2">📞</div>
+          <div class="mb-2"><Phone :size="32" class="text-gray-500" /></div>
           <h3 class="text-base font-bold text-gray-800 mb-1">联系商家</h3>
           <p class="text-sm text-gray-400 mb-4">如需修改订单或退款，请联系工作室</p>
           <a :href="'tel:13900000000'" class="btn btn-primary btn-lg btn-block">拨打 139-0000-0000</a>
@@ -87,6 +87,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { ClipboardList, Phone } from 'lucide-vue-next'
 import { orders } from '@/mock/data.js'
 
 const route = useRoute()

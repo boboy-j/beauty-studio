@@ -10,7 +10,7 @@
     <div class="px-3 mt-3 space-y-3">
       <!-- 邀请排行 -->
       <div class="bg-white rounded-2xl p-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">🏆 邀请排行 Top 10</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3"><Trophy :size="18" class="inline-block mr-1" /> 邀请排行 Top 10</h3>
         <div v-for="(item, i) in referralRanking" :key="i" class="flex items-center gap-3 py-3 border-b border-gray-50 last:border-0">
           <div class="w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold"
             :class="i === 0 ? 'bg-yellow-100 text-yellow-600' : i === 1 ? 'bg-gray-100 text-gray-500' : i === 2 ? 'bg-amber-50 text-amber-600' : 'bg-gray-50 text-gray-400'">
@@ -26,7 +26,7 @@
 
       <!-- 溯源统计 -->
       <div class="bg-white rounded-2xl p-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">📊 引流渠道分布</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3"><BarChart3 :size="18" class="inline-block mr-1" /> 引流渠道分布</h3>
         <div class="space-y-3">
           <div>
             <div class="flex justify-between text-xs text-gray-500 mb-1">
@@ -60,9 +60,9 @@
 
       <!-- 邀请关系 -->
       <div class="bg-white rounded-2xl p-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">🔗 邀请关系</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3"><Link :size="18" class="inline-block mr-1" /> 邀请关系</h3>
         <div class="text-center py-6 text-gray-300">
-          <div class="text-3xl mb-2">🌳</div>
+          <TreePine :size="36" class="text-gray-300 mb-2 mx-auto" />
           <div class="text-sm">邀请关系图谱（Phase 2 实现可视化）</div>
         </div>
       </div>
@@ -71,6 +71,7 @@
 </template>
 
 <script setup>
+import { Trophy, BarChart3, Link, TreePine } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
 import { referralRanking } from '@/mock/data.js'
 

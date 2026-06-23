@@ -32,7 +32,7 @@
 
       <!-- 项目销量排行 -->
       <div class="bg-white rounded-2xl p-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">📊 项目销量排行</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3"><BarChart3 :size="18" class="inline-block mr-1" />项目销量排行</h3>
         <div v-for="(item, i) in sortedSales" :key="item.name" class="flex items-center gap-3 py-2.5 border-b border-gray-50 last:border-0">
           <div class="w-6 text-center text-xs font-bold" :class="i === 0 ? 'text-yellow-500' : i === 1 ? 'text-gray-400' : i === 2 ? 'text-amber-600' : 'text-gray-300'">
             {{ i + 1 }}
@@ -49,7 +49,7 @@
 
       <!-- 用户增长趋势 -->
       <div class="bg-white rounded-2xl p-4">
-        <h3 class="text-sm font-bold text-gray-700 mb-3">📈 用户增长趋势</h3>
+        <h3 class="text-sm font-bold text-gray-700 mb-3"><TrendingUp :size="18" class="inline-block mr-1" />用户增长趋势</h3>
         <div class="flex items-end gap-2" style="height: 120px;">
           <div v-for="(item, i) in stats.userGrowth" :key="i" class="flex-1 flex flex-col items-center gap-1">
             <div class="w-full bg-primary-200 rounded-t-md transition-all"
@@ -62,7 +62,7 @@
       <!-- 引流排行 -->
       <div class="bg-white rounded-2xl p-4">
         <div class="flex items-center justify-between">
-          <h3 class="text-sm font-bold text-gray-700">🏆 引流排行</h3>
+          <h3 class="text-sm font-bold text-gray-700"><Trophy :size="18" class="inline-block mr-1" />引流排行</h3>
           <router-link to="/admin/referral" class="text-xs text-primary-500">查看详情 →</router-link>
         </div>
       </div>
@@ -73,6 +73,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { BarChart3, TrendingUp, Trophy } from 'lucide-vue-next'
 import { stats } from '@/mock/data.js'
 
 const router = useRouter()

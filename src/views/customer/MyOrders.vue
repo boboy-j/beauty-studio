@@ -44,7 +44,7 @@
       </div>
 
       <div v-if="filteredOrders.length === 0" class="empty-state">
-        <div class="empty-icon">📋</div>
+        <ClipboardList :size="48" class="text-gray-300 mx-auto" />
         <div class="empty-text">暂无相关订单</div>
       </div>
     </div>
@@ -54,6 +54,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { ClipboardList } from 'lucide-vue-next'
 import { orders } from '@/mock/data.js'
 
 const router = useRouter()
