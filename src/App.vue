@@ -33,11 +33,26 @@
 
     <!-- B端管理员底部Tab栏 -->
     <div v-if="showAdminTab" class="admin-tab-bar">
-      <router-link to="/admin" class="admin-tab-item" :class="{ active: currentRoute === 'admin' }">📊 概况</router-link>
-      <router-link to="/admin/appointments" class="admin-tab-item" :class="{ active: currentRoute === 'admin-appointments' }">📋 预约</router-link>
-      <router-link to="/admin/products" class="admin-tab-item" :class="{ active: currentRoute === 'admin-products' }">📦 项目</router-link>
-      <router-link to="/admin/customers" class="admin-tab-item" :class="{ active: currentRoute === 'admin-customers' }">👥 客户</router-link>
-      <router-link to="/admin/stats" class="admin-tab-item" :class="{ active: currentRoute === 'admin-stats' }">📈 统计</router-link>
+      <router-link to="/admin" class="admin-tab-item" :class="{ active: currentRoute === 'admin' }">
+        <span class="admin-tab-icon">📊</span>
+        <span class="admin-tab-label">概况</span>
+      </router-link>
+      <router-link to="/admin/appointments" class="admin-tab-item" :class="{ active: currentRoute === 'admin-appointments' }">
+        <span class="admin-tab-icon">📋</span>
+        <span class="admin-tab-label">预约</span>
+      </router-link>
+      <router-link to="/admin/products" class="admin-tab-item" :class="{ active: currentRoute === 'admin-products' }">
+        <span class="admin-tab-icon">📦</span>
+        <span class="admin-tab-label">项目</span>
+      </router-link>
+      <router-link to="/admin/customers" class="admin-tab-item" :class="{ active: currentRoute === 'admin-customers' }">
+        <span class="admin-tab-icon">👥</span>
+        <span class="admin-tab-label">客户</span>
+      </router-link>
+      <router-link to="/admin/stats" class="admin-tab-item" :class="{ active: currentRoute === 'admin-stats' }">
+        <span class="admin-tab-icon">📈</span>
+        <span class="admin-tab-label">统计</span>
+      </router-link>
     </div>
   </div>
 </template>
