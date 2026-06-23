@@ -11,14 +11,14 @@ const DEV_URL = 'http://localhost:5173'
 
 export const APP_URL = import.meta.env.PROD ? PRODUCTION_URL : DEV_URL
 
-// 分享相关
+// 分享相关（始终使用生产地址，避免开发环境显示 localhost）
 export const SHARE = {
   getInviteUrl(/*inviteCode*/) {
     // 暂不拼接路径，Railway SPA 部署下只有主页能访问
-    return APP_URL
+    return PRODUCTION_URL
   },
   getAppUrl() {
-    return APP_URL
+    return PRODUCTION_URL
   }
 }
 
