@@ -71,7 +71,7 @@ const customerTabRoutes = ['home', 'myorders', 'myappointments', 'share', 'profi
 
 // 显示C端Tab的页面
 const showCustomerTab = computed(() => {
-  const name = route.name
+  const name = route.name?.toLowerCase()
   const noTabRoutes = ['login', 'productdetail', 'orderconfirm', 'orderresult',
     'orderdetail', 'appointmentcalendar', 'appointmentconfirm']
   if (noTabRoutes.includes(name)) return false
