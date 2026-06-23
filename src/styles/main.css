@@ -1,0 +1,429 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== 全局样式 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans SC', sans-serif;
+  background-color: #fefcf9;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#app {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+/* ===== 移动端容器 ===== */
+.page-container {
+  padding-bottom: 70px;
+  min-height: 100vh;
+}
+
+.page-container-admin {
+  padding-bottom: 80px;
+  min-height: 100vh;
+  background: #f8f6f3;
+}
+
+/* ===== 顶部导航 ===== */
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #f0ebe4;
+}
+
+.nav-bar-inner {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 16px;
+}
+
+.nav-back {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  padding: 8px 4px;
+  margin-left: -4px;
+}
+
+.nav-title {
+  flex: 1;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-right: 36px;
+}
+
+/* ===== 底部Tab栏 ===== */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  background: #fff;
+  border-top: 1px solid #f0ebe4;
+  display: flex;
+  z-index: 200;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 0;
+  font-size: 11px;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.tab-item.active {
+  color: #c4956a;
+}
+
+.tab-icon {
+  font-size: 22px;
+  margin-bottom: 2px;
+  line-height: 1;
+}
+
+/* ===== 按钮样式 ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #d4a574 0%, #c4956a 100%);
+  color: #fff;
+}
+
+.btn-primary:active {
+  opacity: 0.9;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid #c4956a;
+  color: #c4956a;
+}
+
+.btn-lg {
+  height: 48px;
+  padding: 0 32px;
+  font-size: 16px;
+}
+
+.btn-sm {
+  height: 34px;
+  padding: 0 18px;
+  font-size: 13px;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-rose {
+  background: linear-gradient(135deg, #f0a0c0 0%, #e880a8 100%);
+  color: #fff;
+}
+
+/* ===== 卡片 ===== */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.card-admin {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+/* ===== 标签 ===== */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.tag-hot {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.tag-new {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.tag-promo {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.tag-package {
+  background: #f5f3ff;
+  color: #7c3aed;
+}
+
+/* ===== 表单 ===== */
+.form-input {
+  width: 100%;
+  height: 44px;
+  padding: 0 16px;
+  border: 1px solid #e8e0d6;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #fefcf9;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  border-color: #c4956a;
+}
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+/* ===== 状态指示器 ===== */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-pending {
+  background: #fef9e7;
+  color: #b8860b;
+}
+
+.status-completed {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.status-cancelled {
+  background: #f3f4f6;
+  color: #9ca3af;
+}
+
+.status-paid {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.status-used {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.status-expired {
+  background: #f3f4f6;
+  color: #9ca3af;
+}
+
+/* ===== 分割线 ===== */
+.divider {
+  height: 1px;
+  background: #f0ebe4;
+  margin: 16px 0;
+}
+
+/* ===== 空状态 ===== */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #ccc;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.empty-text {
+  font-size: 14px;
+  color: #bbb;
+}
+
+/* ===== 加载动画 ===== */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f0ebe4;
+  border-top-color: #c4956a;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== 管理员Tab栏 ===== */
+.admin-tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  background: #fff;
+  border-top: 1px solid #f0ebe4;
+  display: flex;
+  z-index: 200;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  overflow-x: auto;
+}
+
+.admin-tab-item {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.admin-tab-item.active {
+  color: #c4956a;
+  border-bottom-color: #c4956a;
+}
+
+/* ===== 页面过渡 ===== */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* ===== 价格样式 ===== */
+.price {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.price-symbol {
+  font-size: 12px;
+}
+
+.price-value {
+  font-size: 20px;
+}
+
+.original-price {
+  color: #ccc;
+  text-decoration: line-through;
+  font-size: 13px;
+  margin-left: 6px;
+}
+
+/* ===== Tooltip/Toast ===== */
+.toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  z-index: 999;
+  animation: toastIn 0.3s ease;
+  max-width: 80%;
+  text-align: center;
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translate(-50%, -40%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+/* ===== Badge ===== */
+.badge-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ef4444;
+}
+
+/* ===== 滚动条美化 ===== */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
