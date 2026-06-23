@@ -87,14 +87,17 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { banners, categories, products, announcements } from '@/mock/data.js'
+import { banners, categories, announcements } from '@/mock/data.js'
+import { useProductsStore } from '@/store/products.js'
 
 const router = useRouter()
+const store = useProductsStore()
 const selectedCategory = ref('all')
 
 const filteredProducts = computed(() => {
-  if (selectedCategory.value === 'all') return products
-  return products.filter(p => p.category === selectedCategory.value)
+  const active = store.activeProducts
+  if (selectedCategory.value === 'all') return active
+  return active.filter(p => p.category === selectedCategory.value)
 })
 
 function goDetail(id) {

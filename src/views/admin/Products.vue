@@ -9,7 +9,7 @@
     </div>
 
     <div class="px-3 mt-3 space-y-3">
-      <div v-for="product in products" :key="product.id" class="bg-white rounded-2xl p-4">
+      <div v-for="product in store.items" :key="product.id" class="bg-white rounded-2xl p-4">
         <div class="flex gap-3">
           <img :src="product.images[0]" class="w-20 h-20 rounded-xl object-cover" />
           <div class="flex-1 min-w-0">
@@ -22,7 +22,7 @@
             </div>
             <p class="text-xs text-gray-400 mt-1">{{ product.category }}</p>
             <div class="text-red-500 font-bold mt-1">¥{{ product.price }} <span class="text-gray-300 text-xs line-through">¥{{ product.originalPrice }}</span></div>
-            <div class="flex gap-1 mt-2">
+            <div class="flex flex-wrap gap-1 mt-2">
               <span v-for="tag in product.tags" :key="tag"
                 class="tag text-xs" :class="tag === '引流价' ? 'tag-promo' : tag === '套餐' ? 'tag-package' : 'tag-hot'">{{ tag }}</span>
             </div>
@@ -33,21 +33,39 @@
           <button class="btn btn-sm" :class="product.isActive ? 'btn-outline' : 'btn-primary'" @click="toggleStatus(product)">
             {{ product.isActive ? '下架' : '上架' }}
           </button>
+          <button class="btn btn-sm text-red-400 border border-red-200 hover:bg-red-50 rounded-lg" @click="confirmDelete(product)">
+            删除
+          </button>
         </div>
+      </div>
+
+      <div v-if="store.items.length === 0" class="text-center py-16 text-gray-400">
+        <div class="text-4xl mb-3">📦</div>
+        <div class="text-sm">暂无项目</div>
+        <router-link to="/admin/product/edit/0" class="text-primary-500 text-sm mt-2 inline-block">+ 新增项目</router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { products } from '@/mock/data.js'
+import { useProductsStore } from '@/store/products.js'
 
 const router = useRouter()
+const store = useProductsStore()
 
 function toggleStatus(product) {
-  product.isActive = !product.isActive
+  store.toggleProductStatus(product.id)
   showToast(product.isActive ? '已上架' : '已下架')
+}
+
+function confirmDelete(product) {
+  if (window.confirm(`确定删除「${product.name}」吗？此操作不可恢复。`)) {
+    store.deleteProduct(product.id)
+    showToast('已删除')
+  }
 }
 
 function showToast(msg) {

@@ -52,7 +52,7 @@
       </div>
 
       <!-- 适用肌肤 -->
-      <div v-if="product.skinTypes.length" class="bg-white mt-3 px-4 py-4">
+      <div v-if="product.skinTypes && product.skinTypes.length" class="bg-white mt-3 px-4 py-4">
         <h3 class="text-sm font-bold text-gray-700 mb-3">🧴 适用肌肤</h3>
         <div class="flex flex-wrap gap-2">
           <span v-for="skin in product.skinTypes" :key="skin" class="px-3 py-1 bg-rose-50 text-rose-600 text-xs rounded-full">{{ skin }}</span>
@@ -99,14 +99,15 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { products } from '@/mock/data.js'
+import { useProductsStore } from '@/store/products.js'
 
 const route = useRoute()
 const router = useRouter()
+const store = useProductsStore()
 
-const product = computed(() => products.find(p => p.id === Number(route.params.id)))
+const product = computed(() => store.getProductById(route.params.id))
 
 function goBuy() {
   if (!product.value) return
