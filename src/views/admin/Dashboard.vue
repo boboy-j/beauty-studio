@@ -66,7 +66,7 @@
         <h3 class="text-sm font-bold text-gray-700">今日预约</h3>
         <router-link to="/admin/appointments" class="text-xs text-primary-500">查看全部 →</router-link>
       </div>
-      <div v-for="apt in todayAppointments.slice(0, 3)" :key="apt.id" class="flex items-center justify-between py-2.5 border-b border-gray-50 last:border-0">
+      <div v-for="apt in realTodayAppts.slice(0, 3)" :key="apt.id" class="flex items-center justify-between py-2.5 border-b border-gray-50 last:border-0">
         <div class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-green-400"></span>
           <div>
@@ -76,7 +76,7 @@
         </div>
         <span class="text-xs text-gray-400">{{ apt.productName }}</span>
       </div>
-      <div v-if="todayAppointments.length === 0" class="text-sm text-gray-300 text-center py-4">今日暂无预约</div>
+      <div v-if="realTodayAppts.length === 0" class="text-sm text-gray-300 text-center py-4">今日暂无预约</div>
     </div>
 
     <!-- 数据概览 -->
@@ -105,9 +105,17 @@
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { ClipboardList, Package, Calendar, Users, TrendingUp } from 'lucide-vue-next'
-import { stats, todayAppointments, adminUser } from '@/mock/data.js'
+import { stats, todayAppointments, appointments, adminUser } from '@/mock/data.js'
 
 const router = useRouter()
 
-const pendingCount = computed(() => todayAppointments.filter(a => a.status === 'pending').length)
+const todayStr = new Date().toISOString().split('T')[0]
+
+const realTodayAppts = computed(() => {
+  const fromAppts = appointments.filter(a => a.date === todayStr && a.status === 'pending')
+  if (fromAppts.length > 0) return fromAppts
+  return todayAppointments
+})
+
+const pendingCount = computed(() => realTodayAppts.value.filter(a => a.status === 'pending').length)
 </script>

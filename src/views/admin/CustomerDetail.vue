@@ -80,15 +80,13 @@ const router = useRouter()
 const customer = customers.find(c => c.id === Number(route.params.id))
 
 const customerOrders = computed(() => {
-  // 简化：用客户姓名匹配
   if (!customer) return []
-  return orders.filter(o => true).slice(0, 2)
+  return orders.filter(o => o.userId === customer.id).slice(0, 2)
 })
 
 const customerAppts = computed(() => {
   if (!customer) return []
-  // 简化：用模拟数据
-  return appointments.filter(a => a.userName === customer.name)
+  return appointments.filter(a => a.userId === customer.id)
 })
 
 const statusMap = { pending: '待消费', completed: '已完成', cancelled: '已取消' }

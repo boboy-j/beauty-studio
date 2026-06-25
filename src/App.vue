@@ -66,10 +66,6 @@ const route = useRoute()
 
 const currentRoute = computed(() => route.name?.toLowerCase() || '')
 
-const customerTabRoutes = ['home', 'myorders', 'myappointments', 'share', 'profile',
-  'myorders', 'myappointments', 'share', 'profile',
-]
-
 // 显示C端Tab的页面
 const showCustomerTab = computed(() => {
   const name = route.name?.toLowerCase()

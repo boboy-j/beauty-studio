@@ -163,6 +163,7 @@ export const adminUser = {
   inviterId: null,
   inviteCode: 'ADMIN001',
   createdAt: '2025-12-01',
+  pinCode: '8888', // 管理员后台 PIN 码
 }
 
 // 订单
